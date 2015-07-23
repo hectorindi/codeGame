@@ -1,0 +1,50 @@
+FMS:
+
+- On FMS while streaming on http creating using f4m files. generate files using f4mgenerater. 
+- make sure .f4v is at the last of the stream name 
+
+<manifest xmlns="http://ns.adobe.com/f4m/2.0">
+ 
+ <baseURL>http://192.168.2.16/hds-live/livepkgr/_definst_/liveevent/baseURL>
+ 
+ <media href="livestream1.f4m" bitrate="650"/>
+
+ <media href="livestream2.f4m" bitrate="100"/>
+  
+ <media href="livestream3.f4m" bitrate="200"/>
+
+</manifest>
+
+- while streaming VOD , dont need to mention hls-vod. I will be picked up by the config file. use just
+http://localhost/vod/sample1.f4m
+
+- use f4fpackager to packge the file before trying it to play on VOD. the f4f and f4m etc file will be generated.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns="http://ns.adobe.com/f4m/1.0">
+	<id>
+		sample1
+	</id>
+	<streamType>
+		recorded
+	</streamType>
+	<duration>
+		114.61450000000001
+	</duration>
+	<bootstrapInfo
+		 profile="named"
+		 id="bootstrap1021"
+	>
+		AAABq2Fic3QAAAAAAAAAFAAAAAPoAAAAAAABv7UAAAAAAAAAAAAAAAAAAQAAABlhc3J0AAAAAAAAAAABAAAAAQAAAB0BAAABZmFmcnQAAAAAAAAD6AAAAAAVAAAAAQAAAAAAAAAAAAAXcAAAAAIAAAAAAAAXdgAAC7gAAAAEAAAAAAAALuwAABdwAAAABQAAAAAAAEZiAAALuAAAAAcAAAAAAABd2AAAF3AAAAAIAAAAAAAAdU4AAAu4AAAACgAAAAAAAIzEAAAXcAAAAAsAAAAAAACkOgAAC7gAAAANAAAAAAAAu7AAABdwAAAADgAAAAAAANMmAAALuAAAABAAAAAAAADqnAAAF3AAAAARAAAAAAABAhIAAAu4AAAAEwAAAAAAARmIAAAXcAAAABQAAAAAAAEw/gAAC7gAAAAWAAAAAAABSHQAABdwAAAAFwAAAAAAAV/qAAALuAAAABkAAAAAAAF3YAAAF3AAAAAaAAAAAAABjtYAAAu4AAAAHAAAAAAAAaZMAAAXcAAAAB0AAAAAAAG9wgAAAfQAAAAAAAAAAAAAAAAAAAAAAA==
+	</bootstrapInfo>
+	<media
+		 streamId="sample1"
+		 url="sample1"
+		 bootstrapInfoId="bootstrap1021"
+	>
+		<metadata>
+			AgAKb25NZXRhRGF0YQgAAAAAAAhkdXJhdGlvbgBAXKdT987ZFwAFd2lkdGgAQIQAAAAAAAAABmhlaWdodABAdgAAAAAAAAAMdmlkZW9jb2RlY2lkAgAEYXZjMQAMYXVkaW9jb2RlY2lkAgAEbXA0YQAKYXZjcHJvZmlsZQBAWQAAAAAAAAAIYXZjbGV2ZWwAQD4AAAAAAAAADnZpZGVvZnJhbWVyYXRlAEA9+FPiVWsoAA9hdWRpb3NhbXBsZXJhdGUAQNWIgAAAAAAADWF1ZGlvY2hhbm5lbHMAQAAAAAAAAAAACXRyYWNraW5mbwoAAAACAwAGbGVuZ3RoAEFKO7GAAAAAAAl0aW1lc2NhbGUAQN1MAAAAAAAACGxhbmd1YWdlAgADYGBgAAAJAwAGbGVuZ3RoAEFDSAkAAAAAAAl0aW1lc2NhbGUAQNWIgAAAAAAACGxhbmd1YWdlAgADYGBgAAAJAAAJ
+		</metadata>
+	</media>
+</manifest>
+
